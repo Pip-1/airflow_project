@@ -2,7 +2,7 @@ import pandas as pd
 from datetime import datetime
 import json
 import requests
-import access_key from api_creds
+from api_creds import access_key
 
 #creating variable to pass todays date to the API
 timestamp = datetime.now()
@@ -27,4 +27,6 @@ data_dict = {
 
 # Creating a dataframe
 weather_df = pd.DataFrame(data_dict)
+
+weather_df.to_csv('weather_data.csv', index=False)
 
